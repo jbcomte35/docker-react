@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 services:
   - docker
 
@@ -6,4 +7,4 @@ before_install:
   - docker build -t jbcomte/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run jbcomte/doccker-react npm run test -- --coverage
+  - docker run -e CI=true jbcomte/doccker-react npm run test
